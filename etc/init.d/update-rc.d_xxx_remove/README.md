@@ -1,9 +1,19 @@
-after 
+#after 
+#
+#apt-get install upstart plymouth mountall
+#
+#we have few scripts as duplicities. those needs to be uninstalled with
+#
+#"update-rc.d [name] remove"
+#
+#because of dependencies, /etc/init.d files needs to be updated. updated files are in up dir.
 
-apt-get install upstart plymouth mountall
 
-we have few scripts as duplicities. those needs to be uninstalled with
+for f in $(ls); do 
+    
+        if [ $f != "README.md" ]; then
+		update-rc.d $f disable
+		update-rc.d -f $f remove
+	fi
 
-"update-rc.d [name] remove"
-
-because of dependencies, /etc/init.d files needs to be updated. updated files are in up dir.
+done
