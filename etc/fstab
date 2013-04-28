@@ -2,6 +2,6 @@
 #
 #
 proc		/proc		proc		defaults	0	0
-LABEL=xbian-root-btrfs		/		btrfs		defaults,rw,compress=lzo,relatime,noatime	0	1
-LABEL=xbian-root-btrfs		/home		btrfs		subvol=HOME/.btrfs/snapshot/@running	0	2
+LABEL=xbian-root-btrfs		/		btrfs		nodatacow,autodefrag,compress=lzo,rw,relatime,noatime,thread_pool=3	0	0
+LABEL=xbian-root-btrfs		/home		btrfs		subvol=HOME/.btrfs/snapshot/@running	0	0
 
